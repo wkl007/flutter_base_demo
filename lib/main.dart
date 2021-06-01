@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_base_demo/pages/less_group_page.dart';
 import 'package:flutter_base_demo/pages/plugin_use.dart';
+import 'package:flutter_base_demo/pages/stateful_group_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,6 +23,8 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         'plugin': (BuildContext context) => PluginUsePage(),
+        'less': (BuildContext context) => StateLessGroupPage(),
+        'ful': (BuildContext context) => StateFulGroupPage(),
       },
     );
   }
@@ -51,6 +55,8 @@ class _RouteNavigatorState extends State<RouteNavigator> {
             crossAxisCount: 3,
             children: [
               _item('plugin 使用', PluginUsePage(), 'plugin'),
+              _item('StatelessWidget 与基础组件', StateLessGroupPage(), 'less'),
+              _item('StateFulWidget 与基础组件', StateFulGroupPage(), 'ful'),
             ],
           ),
         )
@@ -58,7 +64,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
     );
   }
 
-  _item(String title, Widget page, String routeName) {
+  Widget _item(String title, Widget page, String routeName) {
     return Container(
       margin: EdgeInsets.all(10),
       child: ElevatedButton(
