@@ -73,42 +73,46 @@ class _StateFulGroupPageState extends State<StateFulGroupPage> {
 
   Widget _firstPage() {
     return RefreshIndicator(
-      child: Container(
-        decoration: BoxDecoration(color: Colors.blueGrey),
-        alignment: Alignment.center,
-        child: Column(
-          children: [
-            Text(
-              '点了${_count}次',
-              style: textStyle,
+      child: ListView(
+        children: [
+          Container(
+            decoration: BoxDecoration(color: Colors.blueGrey),
+            alignment: Alignment.center,
+            child: Column(
+              children: [
+                Text(
+                  '点了${_count}次',
+                  style: textStyle,
+                ),
+                Icon(
+                  Icons.android,
+                  size: 50,
+                  color: Colors.red,
+                ),
+                CloseButton(),
+                BackButton(),
+                Chip(
+                  avatar: Icon(Icons.people),
+                  label: Text('老王爱小王'),
+                ),
+                Divider(
+                  height: 10, //容器高度，不是线的高度
+                  indent: 10, //左侧间距
+                  color: Colors.orange,
+                ),
+                Card(
+                  color: Colors.blue,
+                  elevation: 5,
+                  margin: EdgeInsets.all(10),
+                  child: Container(
+                    padding: EdgeInsets.all(5),
+                    child: Text('I am a Card', style: textStyle),
+                  ),
+                ),
+              ],
             ),
-            Icon(
-              Icons.android,
-              size: 50,
-              color: Colors.red,
-            ),
-            CloseButton(),
-            BackButton(),
-            Chip(
-              avatar: Icon(Icons.people),
-              label: Text('老王爱小王'),
-            ),
-            Divider(
-              height: 10, //容器高度，不是线的高度
-              indent: 10, //左侧间距
-              color: Colors.orange,
-            ),
-            Card(
-              color: Colors.blue,
-              elevation: 5,
-              margin: EdgeInsets.all(10),
-              child: Container(
-                padding: EdgeInsets.all(5),
-                child: Text('I am a Card', style: textStyle),
-              ),
-            ),
-          ],
-        ),
+          )
+        ],
       ),
       onRefresh: _handleRefresh,
     );

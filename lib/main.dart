@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_base_demo/pages/flutter_layout_page.dart';
+import 'package:flutter_base_demo/pages/gesture_page.dart';
+import 'package:flutter_base_demo/pages/launch_page.dart';
 import 'package:flutter_base_demo/pages/less_group_page.dart';
 import 'package:flutter_base_demo/pages/plugin_use.dart';
+import 'package:flutter_base_demo/pages/resource_page.dart';
 import 'package:flutter_base_demo/pages/stateful_group_page.dart';
 
 void main() {
@@ -25,6 +29,10 @@ class MyApp extends StatelessWidget {
         'plugin': (BuildContext context) => PluginUsePage(),
         'less': (BuildContext context) => StateLessGroupPage(),
         'ful': (BuildContext context) => StateFulGroupPage(),
+        'layout': (BuildContext context) => FlutterLayoutPage(),
+        'gesture': (BuildContext context) => GesturePage(),
+        'resource': (BuildContext context) => ResourcePage(),
+        'launch': (BuildContext context) => LaunchPage(),
       },
     );
   }
@@ -57,6 +65,10 @@ class _RouteNavigatorState extends State<RouteNavigator> {
               _item('plugin 使用', PluginUsePage(), 'plugin'),
               _item('StatelessWidget 与基础组件', StateLessGroupPage(), 'less'),
               _item('StateFulWidget 与基础组件', StateFulGroupPage(), 'ful'),
+              _item('如何进行 Flutter 布局开发', FlutterLayoutPage(), 'layout'),
+              _item('用户手势及点击事件', GesturePage(), 'gesture'),
+              _item('导入和使用 Flutter 的资源文件', ResourcePage(), 'resource'),
+              _item('打开第三方应用', LaunchPage(), 'launch'),
             ],
           ),
         )
