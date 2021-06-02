@@ -28,7 +28,7 @@ class LaunchPage extends StatelessWidget {
   }
 
   void _telPhone() async {
-    const phone = '110';
+    const phone = 'tel:+1 555 010 999';
     if (await canLaunch(phone)) {
       await launch(phone);
     } else {
