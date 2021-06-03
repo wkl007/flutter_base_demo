@@ -1,12 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_base_demo/pages/dio_page.dart';
 import 'package:flutter_base_demo/pages/flutter_layout_page.dart';
+import 'package:flutter_base_demo/pages/future_page.dart';
 import 'package:flutter_base_demo/pages/gesture_page.dart';
+import 'package:flutter_base_demo/pages/http_page.dart';
 import 'package:flutter_base_demo/pages/launch_page.dart';
 import 'package:flutter_base_demo/pages/less_group_page.dart';
+import 'package:flutter_base_demo/pages/photo_app_page.dart';
 import 'package:flutter_base_demo/pages/plugin_use.dart';
 import 'package:flutter_base_demo/pages/resource_page.dart';
+import 'package:flutter_base_demo/pages/shared_preferences_page.dart';
 import 'package:flutter_base_demo/pages/stateful_group_page.dart';
+import 'package:flutter_base_demo/pages/tab_app_bar_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -33,6 +39,12 @@ class MyApp extends StatelessWidget {
         'gesture': (BuildContext context) => GesturePage(),
         'resource': (BuildContext context) => ResourcePage(),
         'launch': (BuildContext context) => LaunchPage(),
+        'photo': (BuildContext context) => PhotoAppPage(),
+        'tabAppBar': (BuildContext context) => TabAppBarPage(),
+        'http': (BuildContext context) => HttpPage(),
+        'dio': (BuildContext context) => DioPage(),
+        'future': (BuildContext context) => FuturePage(),
+        'sharedPreferences': (BuildContext context) => SharedPreferencesPage(),
       },
     );
   }
@@ -69,6 +81,13 @@ class _RouteNavigatorState extends State<RouteNavigator> {
               _item('用户手势及点击事件', GesturePage(), 'gesture'),
               _item('导入和使用 Flutter 的资源文件', ResourcePage(), 'resource'),
               _item('打开第三方应用', LaunchPage(), 'launch'),
+              _item('photo', PhotoAppPage(), 'photo'),
+              _item('顶部tab', TabAppBarPage(), 'tabbedAppBar'),
+              _item('http 使用', HttpPage(), 'http'),
+              _item('dio 使用', DioPage(), 'dio'),
+              _item('future 使用', FuturePage(), 'future'),
+              _item('sharedPreferences 使用', SharedPreferencesPage(),
+                  'sharedPreferences'),
             ],
           ),
         )
