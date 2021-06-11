@@ -1,12 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_base_demo/pages/advanced_list_page.dart';
+import 'package:flutter_base_demo/pages/animation_page.dart';
+import 'package:flutter_base_demo/pages/az_list_page.dart';
 import 'package:flutter_base_demo/pages/dio_page.dart';
 import 'package:flutter_base_demo/pages/expansion_title_page.dart';
 import 'package:flutter_base_demo/pages/flutter_layout_page.dart';
 import 'package:flutter_base_demo/pages/future_page.dart';
 import 'package:flutter_base_demo/pages/gesture_page.dart';
 import 'package:flutter_base_demo/pages/grid_view_page.dart';
+import 'package:flutter_base_demo/pages/hero_animation_page.dart';
 import 'package:flutter_base_demo/pages/http_page.dart';
 import 'package:flutter_base_demo/pages/launch_page.dart';
 import 'package:flutter_base_demo/pages/less_group_page.dart';
@@ -17,7 +20,8 @@ import 'package:flutter_base_demo/pages/resource_page.dart';
 import 'package:flutter_base_demo/pages/shared_preferences_page.dart';
 import 'package:flutter_base_demo/pages/stateful_group_page.dart';
 import 'package:flutter_base_demo/pages/tab_app_bar_page.dart';
-import 'package:flutter_base_demo/pages/az_list_page.dart';
+import 'package:flutter_base_demo/pages/toast_context_page.dart';
+import 'package:flutter_base_demo/pages/toast_no_context_page.dart';
 import 'package:flutter_base_demo/pages/webview_page.dart';
 
 void main() {
@@ -57,6 +61,11 @@ class MyApp extends StatelessWidget {
         'gridView': (BuildContext context) => GridViewPage(),
         'azList': (BuildContext context) => AzListPage(),
         'webView': (BuildContext context) => WebviewPage(),
+        'toastNoContext': (BuildContext context) => ToastNoContextPage(),
+        'toastContext': (BuildContext context) => ToastContextPage(),
+        'animation': (BuildContext context) => AnimationPage(),
+        'hero': (BuildContext context) => HeroAnimationPage(),
+        'radialHero': (BuildContext context) => RadialExpansionDemo(),
       },
     );
   }
@@ -118,7 +127,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
               _item('导入和使用 Flutter 的资源文件', ResourcePage(), 'resource'),
               _item('打开第三方应用', LaunchPage(), 'launch'),
               _item('photo', PhotoAppPage(), 'photo'),
-              _item('顶部tab', TabAppBarPage(), 'tabbedAppBar'),
+              _item('顶部tab', TabAppBarPage(), 'tabAppBar'),
               _item('http 使用', HttpPage(), 'http'),
               _item('dio 使用', DioPage(), 'dio'),
               _item('future 使用', FuturePage(), 'future'),
@@ -130,6 +139,11 @@ class _RouteNavigatorState extends State<RouteNavigator> {
               _item('网格布局', GridViewPage(), 'gridView'),
               _item('城市索引', AzListPage(), 'azList'),
               _item('webView', WebviewPage(), 'webView'),
+              _item('toast no context', ToastNoContextPage(), 'toastNoContext'),
+              _item('toast context', ToastContextPage(), 'toastContext'),
+              _item('普通动画', AnimationPage(), 'animation'),
+              _item('hero 动画', HeroAnimationPage(), 'hero'),
+              _item('hero 径向动画', RadialExpansionDemo(), 'radialHero'),
             ],
           ),
         ),
