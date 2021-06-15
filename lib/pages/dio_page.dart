@@ -16,7 +16,7 @@ class _DioPageState extends State<DioPage> {
     try {
       Response response = await Dio().get(url);
       CommonModel result = CommonModel.fromJson(response.data);
-      print(result.url);
+      print(result.toString());
       setState(() {
         data = response.toString();
       });

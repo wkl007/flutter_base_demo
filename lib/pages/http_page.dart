@@ -7,12 +7,19 @@ var url = Uri.parse(
   'https://www.devio.org/io/flutter_app/json/test_common_model.json',
 );
 
+T? asT<T>(dynamic value) {
+  if (value is T) {
+    return value;
+  }
+  return null;
+}
+
 class CommonModel {
-  final String icon;
-  final String title;
-  final String url;
-  final String statusBarColor;
-  final bool hideAppBar;
+  String icon;
+  String title;
+  String url;
+  String statusBarColor;
+  bool hideAppBar;
 
   CommonModel({
     required this.icon,
@@ -23,12 +30,28 @@ class CommonModel {
   });
 
   factory CommonModel.fromJson(Map<String, dynamic> json) => CommonModel(
-        icon: json['icon'],
-        title: json['title'],
-        url: json['url'],
-        statusBarColor: json['statusBarColor'],
-        hideAppBar: json['hideAppBar'],
+        icon: asT<String>(json['icon'])!,
+        title: asT<String>(json['title'])!,
+        url: asT<String>(json['url'])!,
+        statusBarColor: asT<String>(json['statusBarColor'])!,
+        hideAppBar: asT<bool>(json['hideAppBar'])!,
       );
+
+  @override
+  String toString() {
+    return jsonEncode(this);
+  }
+
+  Map<String, dynamic> toJson() => <String, dynamic>{
+        'icon': icon,
+        'title': title,
+        'url': url,
+        'statusBarColor': statusBarColor,
+        'hideAppBar': hideAppBar,
+      };
+
+  CommonModel clone() => CommonModel.fromJson(
+      asT<Map<String, dynamic>>(jsonDecode(jsonEncode(this)))!);
 }
 
 class HttpPage extends StatefulWidget {
